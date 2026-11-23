@@ -1,0 +1,15 @@
+(version 1)
+
+# Нормы производства, фольга 35 мкм
+
+(rule "Поясок монтажной площадки 0.2"
+  (constraint annular_width (min 0.2mm))
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'"))
+
+(rule "Поясок переходного отверстия 0.15"
+  (constraint annular_width (min 0.15mm))
+  (condition "A.Type == 'Via'"))
+
+(rule "Металлизированное отверстие 0.3"
+  (constraint hole_size (min 0.3mm))
+  (condition "A.isPlated()"))
